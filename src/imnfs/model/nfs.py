@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Union
 import numpy as np
 
 class NFSet:
@@ -7,7 +7,7 @@ class NFSet:
     Each element: [Mu, T, I, F]
     """
 
-    def __init__(self, data: List[List[float]]):
+    def __init__(self, data: (Union[List[List[float]]] | np.ndarray)):
         """
         Initialize NFSet with data.
 

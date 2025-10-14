@@ -1,3 +1,4 @@
 from .nfs import NFSet
+from .rnf import RNF
 
-__all__ = ["NFSet"]
+__all__ = ["NFSet", "RNF"]
