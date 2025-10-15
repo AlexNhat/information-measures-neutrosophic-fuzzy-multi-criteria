@@ -1,6 +1,6 @@
 import numpy as np
 from typing import List
-from src.imnfs.measures import get_measures
+from imnfs.measures import get_measures
 
 def compute_similarity(a: np.ndarray, b: np.ndarray) ->List[float]:
     """

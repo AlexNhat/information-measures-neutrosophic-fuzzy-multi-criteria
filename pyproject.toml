@@ -1,28 +1,27 @@
-[project]
+[tool.poetry]
 name = "imnfs"
 version = "0.1.0"
-description = "Interactive model with NumPy, Pandas, and Streamlit"
-authors = [
-    { name = "AlexNhat", email = "anhnhat909940@gmail.com" }
-]
+description = "This project introduces similarity-based information measures (entropy and cross-entropy) for neutrosophic fuzzy sets (NF-sets), a hybrid combining fuzzy and neutrosophic sets for indeterminate data. It includes theorems proving properties and an improved multi-criteria decision-making algorithm for qualitative and quantitative aspects."
+authors = ["AlexNhat <anhnhat909940@gmail.com>"]
 readme = "README.md"
-requires-python = ">=3.10,<3.12"
+packages = [{ include = "imnfs", from = "src" }]
 
-dependencies = [
-    "numpy==1.26.4",
-    "pandas==2.2.3",
-    "openpyxl==3.1.5",
-    "streamlit==1.39.0",
-    "latexify-py (>=0.4.4,<0.5.0)",
-    "matplotlib (>=3.10.7,<4.0.0)"
-]
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+numpy = "1.26.4"
+pandas = "2.2.3"
+openpyxl = "3.1.5"
+streamlit = "1.39.0"
+latexify-py = ">=0.4.4,<0.5.0"
+matplotlib = ">=3.10.7,<4.0.0"
 
-[project.optional-dependencies]
-dev = [
-    "ipykernel==6.29.5",
-    "loguru==0.7.2",
-    "rich==13.9.2"
-]
+[tool.poetry.group.dev.dependencies]
+ipykernel = "6.29.5"
+loguru = "0.7.2"
+rich = "13.9.2"
+
+[tool.poetry.scripts]
+imnfs-run = "imnfs.__main__:main"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

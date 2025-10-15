@@ -1,5 +1,5 @@
 import numpy as np
-from src.imnfs.model import RNF
+from imnfs.model import RNF
 from .similarity_calculator import compute_similarity
 from .weight_calculator import compute_weight  # assuming compute_weight is here
 
@@ -65,10 +65,10 @@ def compute_normalized_scores(rnf: RNF, index: int) -> list:
     Returns:
         List of normalized scores per column
     """
-    spos_scores = np.array(compute_negative_similarity_scores(rnf, index))
+    spos_scores = np.array(compute_positive_similarity_scores(rnf, index))
     sneg_scores = np.array(compute_negative_similarity_scores(rnf, index))
 
     # calculate score
-    scores = spos_scores / (spos_scores + sneg_scores + 1e-12)
+    scores = spos_scores / (spos_scores + sneg_scores)
 
     return scores.tolist()

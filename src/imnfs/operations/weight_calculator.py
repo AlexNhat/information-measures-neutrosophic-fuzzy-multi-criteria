@@ -1,7 +1,7 @@
 import numpy as np
 from typing import List
-from .entropy_calculator import entropy_list, cross_entropy_pairwise
-from src.imnfs.model import RNF
+from .entropy_calculator import entropy_list, cross_entropy_list
+from imnfs.model import RNF
 
 
 def compute_weight(rnf: RNF, index: int) -> List[float]:
@@ -20,7 +20,7 @@ def compute_weight(rnf: RNF, index: int) -> List[float]:
     entropy_vals = np.array(entropy_list(rnf.data, index))
 
     # Compute cross-entropy values pairwise for the NF-set at the given index
-    cross_entropy_vals = np.array(cross_entropy_pairwise(rnf.data, index))
+    cross_entropy_vals = np.array(cross_entropy_list(rnf.data, index))
 
     # Combine entropy and cross-entropy to compute raw weights
     # Formula: raw_weight = 1 - entropy + cross_entropy
